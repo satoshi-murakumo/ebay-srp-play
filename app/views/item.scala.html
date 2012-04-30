@@ -1,0 +1,36 @@
+@(item: org.codehaus.jackson.JsonNode)
+
+<a name="item{ITEM_ID_HEX}"></a>
+<table class="li">
+    <tbody>
+    <tr>
+        <td class="pic p140 lt"><a href="#" class="x140 img">
+        @if(item.get("galleryURL") != null) {
+            <img class="img" src="@item.get("galleryURL").get(0).getTextValue()" alt="Item image" /></a>
+        }
+        </td>
+
+        <td class="dtl ttl"><a href="http://cgi.ebay.com/@item.get("title").get(0).getTextValue()/@item.get("itemId").get(0).getTextValue()"
+                               class="vip">@item.get("title").get(0).getTextValue()</a></td>
+
+        <td class="trs">
+        @if(item.get("sellerInfo").get(0).get("topRatedSeller").get(0).getBooleanValue()) {
+            <img src= "http://p.ebaystatic.com/aw/pics/icons/iconTrsXSmall.gif"
+                 alt="Get fast shipping and excellent service when you buy from eBay Top-rated sellers"
+                 height="30" width="66" />
+        }
+        </td>
+
+    @if(item.get("sellingStatus").get(0).get("bidCount") != null) {
+        <td class="bids bin1">@item.get("sellingStatus").get(0).get("bidCount").get(0) Bids</td>
+    }
+    else {
+        <td class="bids bin1">0 Bids</td>
+    }
+
+        <td class="prc g-b">@item.get("sellingStatus").get(0).get("currentPrice").get(0).get("__value__").getTextValue() @item.get("sellingStatus").get(0).get("currentPrice").get(0).get("@currencyId").getTextValue()</td>
+
+        <td class="tme rt"><b class="hidlb">Time left:</b> <span class="{ALERT_OR_NOT}">@item.get("timeLeft")</span></td>
+    </tr>
+    </tbody>
+</table>
