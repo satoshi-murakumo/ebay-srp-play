@@ -1,11 +1,11 @@
-@(results: org.codehaus.jackson.JsonNode)
+@(keyword : String)(results: org.codehaus.jackson.JsonNode)
 <div id="v4-4" class="fpcc">
     <div>
 	<span>
 		<h1 class="smuy">
         @if(results != null) {
             <span class="countClass">@results.get("findItemsByKeywordsResponse").get(0).get("paginationOutput").get(0).get("totalPages").get(0).getTextValue()</span> <span
-                class="matchClass">results found for</span> <span class="keywordClass" id="v4-5">@request().body().asFormUrlEncoded().get("_nkw")[0]</span>
+                class="matchClass">results found for</span> <span class="keywordClass" id="v4-5">@keyword</span>
         }
         </h1>
 	</span>

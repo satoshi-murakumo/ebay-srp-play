@@ -1,4 +1,4 @@
-@(title: String)(results: org.codehaus.jackson.JsonNode)(content: Html)
+@(title: String)(keyword : String)(results: org.codehaus.jackson.JsonNode)(content: Html)
 
 <!DOCTYPE html>
 <html>
@@ -23,7 +23,7 @@
         <div id="TopPanel">
         @header()
         @finding_search_bar()
-        @finding_result_count(results)
+        @finding_result_count(keyword)(results)
         </div> <!-- End TopPanel -->
     </div>
 

@@ -14,7 +14,7 @@
                                class="vip">@item.get("title").get(0).getTextValue()</a></td>
 
         <td class="trs">
-        @if(item.get("sellerInfo").get(0).get("topRatedSeller").get(0).getBooleanValue()) {
+        @if(item.get("sellerInfo").get(0).get("topRatedSeller").get(0).getTextValue() == "true") {
             <img src= "http://p.ebaystatic.com/aw/pics/icons/iconTrsXSmall.gif"
                  alt="Get fast shipping and excellent service when you buy from eBay Top-rated sellers"
                  height="30" width="66" />
@@ -23,14 +23,13 @@
 
     @if(item.get("sellingStatus").get(0).get("bidCount") != null) {
         <td class="bids bin1">@item.get("sellingStatus").get(0).get("bidCount").get(0) Bids</td>
-    }
-    else {
+    } else {
         <td class="bids bin1">0 Bids</td>
     }
 
         <td class="prc g-b">@item.get("sellingStatus").get(0).get("currentPrice").get(0).get("__value__").getTextValue() @item.get("sellingStatus").get(0).get("currentPrice").get(0).get("@currencyId").getTextValue()</td>
 
-        <td class="tme rt"><b class="hidlb">Time left:</b> <span class="{ALERT_OR_NOT}">@item.get("timeLeft")</span></td>
+        <td class="tme rt"><b class="hidlb">Time left:</b> <span class="{ALERT_OR_NOT}">@item.get("sellingStatus").get(0).get("timeLeft").get(0).getTextValue()</span></td>
     </tr>
     </tbody>
 </table>
